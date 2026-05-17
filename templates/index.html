@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %} Sport PAGE {% endblock %}
+
+{% block content %}
+<h1>This is sports page</h1>
+<div class="row mt-10">
+    {% for sport in sports %}
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+            <img src="/static/images/{{ sport['img'] }}" class="card-img-top" alt="Movie Poster Image">
+            <div class="card-body">
+                <h5 class="card-title">{{ sport[["name"]] }}</h5>
+                <p class="card-text">{{ sport["description"] }}</p>
+                <a href="/sport/{{ sport['id'] }}" class="btn btn-primary">See details</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
