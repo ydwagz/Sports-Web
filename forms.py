@@ -6,6 +6,7 @@ from wtforms.validators import DataRequired, equal_to, length
 from flask_wtf.file import FileField, FileRequired, FileSize, FileAllowed
 
 
+
 class RegisterForm(FlaskForm):
     image = FileField(validators=[
         FileRequired(message="უეჭველი ატვირთე ფოტო"),
@@ -13,7 +14,8 @@ class RegisterForm(FlaskForm):
         FileAllowed(["png", "jpg", "jpeg"])
     ])
     username = StringField("Enter Username", validators=[
-        DataRequired()
+        DataRequired(),
+        length(min=3, max=28),
     ])
     password = PasswordField("Enter Password", validators=[
         DataRequired(),
@@ -32,3 +34,11 @@ class RegisterForm(FlaskForm):
 
     register = SubmitField("Register")
 
+
+class SportForm(FlaskForm):
+    img = FileField()
+    name = StringField("Enter Name", validators=[DataRequired(),])
+    description = StringField("Enter Description", validators=[DataRequired(),])
+    desc_long = StringField("Enter Long Description", validators=[DataRequired(),])
+
+    submit = SubmitField("Add Sport")

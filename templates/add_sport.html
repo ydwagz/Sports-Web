@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %} Add sport | Page {% endblock %}
+
+{% block content %}
+<h1>Add a Sport</h1>
+
+    <div class="row justify-content-center">
+            {% for errors in form.errors.values() %}
+                <div class="alert alert-danger">
+                    {% for error in errors %}
+                        {{ error }}
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        <form method="POST" enctype="multipart/form-data" class="col-6 p-5">
+            {{ form.hidden_tag() }}
+            <div class="row">
+                {{ form.img(class="form-control", accept=".png, .jpg, .jpeg") }}
+            </div>
+            <div class="row mt-2">
+                {{ form.name(class="form-control", placeholder=form.name.label.text) }}
+            </div>
+            <div class="row mt-2">
+                {{ form.description(class="form-control", placeholder=form.description.label.text) }}
+            </div>
+            <div class="row mt-2">
+                {{ form.desc_long(class="form-control", placeholder=form.desc_long.label.text) }}
+            </div>
+            <div class="row mt-2">
+                {{ form.submit(class="btn btn-success", placeholder=form.submit.label.text) }}
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
+
+
+

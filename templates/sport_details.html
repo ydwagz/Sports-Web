@@ -1,24 +1,24 @@
+<h4 class="card-text">{{ sport.desc_long }}</h4>
 {% extends 'base.html' %}
 
-{% block title %} {{ sport["title"] }} {% endblock %}
+{% block title %} Detail | page {% endblock %}
 
 {% block content %}
 <a href="/" class="nav-link"> ⬅️ back</a>
-<h1>Details about {{ sport["title"] }}</h1>
+<h1>Details about {{ sport.name }}</h1>
 <hr>
 <div class="row">
     <div class="col">
         <div class="card" style="width: 18rem;">
-            <img src="/static/images/{{ sport['img'] }}" class="card-img-top" alt="Movie Poster Image">
+            <img src="/static/images/{{ sport.img }}" class="card-img-top" alt="Movie Poster Image">
             <div class="card-body">
-                <h5 class="card-title">{{ sport["title"] }}</h5>
-                <p class="card-text">{{ sport["description"] }}</p>
+                <h5 class="card-title">{{ sport.name }}</h5>
+                <p class="card-text">{{ sport.description }}</p>
             </div>
 
         </div>
     </div>
     <div class="col">
-        <h4 class="card-text">{{ sport["des_long"] }}</h4>
     </div>
 </div>
 {% endblock %}

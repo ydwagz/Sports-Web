@@ -8,4 +8,5 @@ class Sport(db.Model):
     name = db.Column(db.String(), nullable=False)
     description = db.Column(db.String(), nullable=False)
     desc_long = db.Column(db.String(), nullable=False)
-    img = db.Column(db.String(), nullable=False)
+    img = db.Column(db.String(), nullable=True)
+
